@@ -1,0 +1,183 @@
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    padding-bottom: 200px;
+    background-color: #FBF0D9;
+}
+
+.counter{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: rgb(150, 206, 255);
+    border-radius: 25px;
+    border:  5px double  rgb(59, 164, 255);
+}
+
+#count{
+margin: 0;
+padding-bottom: 50px;}
+
+.top{
+    display: flex;
+    justify-content: center;
+    font-size: 100px;
+}
+
+.low{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.count_button{
+    font-size: 20px;
+    margin: 5px;
+    transition: .2s;
+    background-color: rgb(169, 255, 255);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    border-radius: 5px;
+
+}
+
+.count_button:hover{
+    background-color: aqua;
+    border-radius: 15px;
+    
+}
+
+
+
+.roll_dice{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: rgb(168, 255, 159);
+    border-radius: 50px;
+}
+
+.roll{
+    display: flex;
+    justify-content: center;
+}
+
+#roll{
+    font-size: 30px;
+    border-radius: 10px;
+    border:  1px solid gray;
+    background-color: rgb(255, 255, 145);
+    transition: .1s;
+}
+
+
+#roll:active{
+    background-color: rgb(255, 255, 0);
+}
+
+.random_nums{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.r_nums{
+    font-size: 50px;
+    margin-left: 10px;  
+    margin-right: 10px;  
+    min-width: 50px;
+    border: .1px solid  rgb(41, 255, 41);    
+    justify-content: center;
+    padding-left: 20px;
+    border-radius: 10px;
+
+
+}
+.cards{
+    background-color: rgb(255, 105, 105);
+    border-radius: 15px;
+    width: 500px;
+    padding-top: 20px;
+    padding-left: 7px;
+    font-size: 20px;
+}
+
+.card_type{
+    border: 1px solid black;
+    border-radius: 8px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-right: 10px;
+
+}
+
+#submit_card{
+    font-size: 30px;
+    padding: 6px;
+    margin: 3px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    border: 2px solid rgb(194, 84, 84);
+}
+
+#submit_card:active{
+    background-color: rgb(255, 68, 68);
+}
+
+.num_guess{
+    width: 500px;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+.guess{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+#numm{
+    font-size: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 60px;
+    border-radius: 5px;
+}
+
+.num_guess_bottom{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content:space-around;
+
+}
+
+#submit_num{
+    font-size: 30px;
+    border-radius: 20px;
+    border: 1px solid bisque;
+    height: 35px;
+    margin-top: 32px;
+}
+
+#submit_num:active{
+    background-color: rgb(255, 198, 129);
+}
+
+#count_left{
+    font-size: 30px;
+    border-radius: 20px;
+    border: 1px solid bisque;
+    padding-left: 7px;
+    padding-right: 7px;
+
+
+}

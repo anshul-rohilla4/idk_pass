@@ -51,7 +51,9 @@ padding-bottom: 50px;}
 .roll_dice{
     display: flex;
     flex-direction: column;
+    gap: 50px;
     width: 500px;
+    height: 200px;
     background-color: rgb(168, 255, 159);
     border-radius: 50px;
 }
@@ -83,15 +85,13 @@ padding-bottom: 50px;}
 
 }
 
-.r_nums{
-    font-size: 50px;
-    margin-left: 10px;  
-    margin-right: 10px;  
-    min-width: 50px;
-    border: .1px solid  rgb(41, 255, 41);    
+.r_dice{
+
+    margin-right: 10px;
+    max-width: 80px;  
+    border: 3px solid  rgb(0, 255, 0);    
     justify-content: center;
-    padding-left: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
 
 
 }
@@ -228,4 +228,24 @@ padding-bottom: 50px;}
     font-size: 200;
     color: coral;
     
+}
+
+.pswd_box{
+    width: 500px;
+    background-color: rgb(59, 164, 255);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+#PSWD_{
+    padding-left: 20px;
+    
+}
+
+#get_pswd{
+    height: 40px;
+    border-radius: 25px;
+    margin-top: 5px;
 }

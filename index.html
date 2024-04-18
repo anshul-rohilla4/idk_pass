@@ -29,9 +29,6 @@
     <p><br><br></p>
 
 
-
-
-
     <div class="counter">
         <div class="top">
             <p id="count">0</p>
@@ -68,13 +65,13 @@
         <p>SELECT A PAYMENT MODE</p>
 
         <input type="radio" id="visabtn" name="card" >
-        <label class="card_type">VISA</label>
+        <label class="card_type" for="visabtn">VISA</label>
 
         <input type="radio" id="mastrcdbtn" name="card" >
-        <label class="card_type">MASTER CARD</label>
+        <label class="card_type" for="mastrcdbtn">MASTER CARD</label>
         
         <input type="radio" id="payplbtn" name="card" >
-        <label class="card_type">PAYPAL</label>
+        <label class="card_type" for="payplbtn">PAYPAL</label>
         <br>
         <button id="submit_card">SUBMIT</button>
     </div>
@@ -99,9 +96,30 @@
     </div>
     <div class="num_guess_bottom">
         <button id="submit_num">SUBMIT</button>
-        <p id="count_left">GUESS LEFT</p>
+        <p id="count_left">TRIES 0</p>
         
 
+    </div>
+</div>
+
+<br><br><br>
+
+<div class="temp_converter">
+    <div class="temp_box">
+        <input type="number" id="temp_to_convert">
+    </div>
+    <div class="convert_choice">
+        <input type="radio" id="toCelc" name="temps_converts_choice">
+        <label for="toCelc">F° to C°  </label>
+
+        <input type="radio" id="toFahr" name="temps_converts_choice ">
+        <label for="toFahr">C° to F°</label>
+
+        <button id="submit_temp">CONVERT</button>
+
+    </div>
+    <div class="ansTemp">
+        <p id=ansTemp> </p>
     </div>
 </div>
 

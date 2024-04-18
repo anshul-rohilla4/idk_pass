@@ -137,16 +137,30 @@ document.getElementById("reset").onclick=function(){
 
 
 //roll-dice
-document.getElementById("rand1")
-document.getElementById("rand2")
-document.getElementById("rand3")
 const mini=1;
 const maxi=6;
+let dice1=document.getElementById(`dice1`);
+let dice2=document.getElementById(`dice2`);
+let dice3=document.getElementById(`dice3`);
+
+
+
+
 
 document.getElementById("roll").onclick=function(){
-    rand1.textContent=Math.floor(Math.random()*(maxi-mini)+mini);
-    rand2.textContent=Math.floor(Math.random()*(maxi-mini)+mini);
-    rand3.textContent=Math.floor(Math.random()*(maxi-mini)+mini);
+    let rand1=Math.floor(Math.random()*(maxi-mini)+mini);
+    let imagePath1 = `dice-img/dice-${rand1}.png`;
+
+    let rand2=Math.floor(Math.random()*(maxi-mini)+mini);
+    let imagePath2 = `dice-img/dice-${rand2}.png`;
+
+    let rand3=Math.floor(Math.random()*(maxi-mini)+mini);
+    let imagePath3 = `dice-img/dice-${rand3}.png`;
+
+    dice1.src=imagePath1
+    dice2.src=imagePath2
+    dice3.src=imagePath3
+    
 
 }
 
@@ -439,3 +453,53 @@ const fullnamee=joinString("Mr.","Niko","Lama","bigZAW");
 
 console.log(fullnamee);
 //Mr. Niko Lama bigZAW
+
+
+//----------------------------------------------------------------------------
+// password generator
+
+
+const PSWD_Length=12;
+const includeLC=true;
+const includeUC=true;
+const includeNUMS=true;
+const includeCHAR=true;
+
+
+function generatePswd(PSWD_Length,includeLC,includeUC,includeNUMS,includeCHAR){
+
+const LCase_pswd="abcdefghijklmnopqrstuvwxyz";
+const UCase_pswd="ABCDEFGHIJKKLMNOPQRSTUVWXYZ";
+const Nun_pswd="0123456789";
+const Char_pswd="!@#$%^&*()_+";
+
+let finalchars="";
+let PSWD="";
+
+finalchars += includeLC ? LCase_pswd :"";
+finalchars += includeUC ? UCase_pswd :"";
+finalchars += includeNUMS ? Nun_pswd :"";
+finalchars += includeCHAR ? Char_pswd :"";
+let i=0;
+while(i<PSWD_Length){
+
+    const randomIndexPSWD=Math.floor(Math.random()*finalchars.length)
+
+    PSWD+=finalchars[randomIndexPSWD];
+    i++;
+}
+return PSWD;
+}
+
+let get_pswd=document.getElementById(`get_pswd`)
+let PSWD_=document.getElementById(`PSWD_`);
+let PSWDpswd;
+get_pswd.onclick=function(){
+    PSWDpswd=generatePswd(PSWD_Length,includeLC,includeUC,includeNUMS,includeCHAR)
+    PSWD_.textContent=`PASWWORD : ${PSWDpswd}`
+    console.log(PSWDpswd)
+}
+
+
+//----------------------------------------------------------------------------
+//callback

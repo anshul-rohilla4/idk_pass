@@ -308,39 +308,134 @@ let random_numm=Math.floor(Math.random()*10)+1;
 console.log(`random num : ${random_numm}`);
 
 let submit_num=document.getElementById(`submit_num`);
-let count_life = 3;
+let count_life = 0;
 let count_num = document.getElementById('count_left');
 let orray = document.getElementById('num_guess_text');
-
-count_num.textContent = `GUESS LEFT ${count_life}`;
-
-
 
 
 submit_num.onclick=function(){
     let guess = Number(document.getElementById('numm').value);
 
-    if(guess==random_numm){
+
+    
+    if(guess>random_numm){
+        orray.textContent=`guess a low`;
+        count_life+=1;
+        count_num.textContent=`TRIES ${count_life}`;
+    }
+    else if(guess<random_numm){
+        orray.textContent=`guess a high`;
+        count_life+=1;
+        count_num.textContent=`TRIES ${count_life}`;
+
+    }
+    else if(guess==random_numm){
+        submit_num.remove();
+        orray.textContent=`you a genius`;
+        count_life+=1;
+        count_num.textContent=`FINALLY @ ${count_life}`;
+    }
+    if(count_life>10){
         submit_num.remove();
         count_num.remove();
-        orray.textContent=`you a genius`;
+        orray.textContent=`LEAVE It BRUHHHHHH`;
     }
-    else{
-
-        count_life-=1;
-        orray.textContent = "you a dumb!";
-        if(count_life>0)
-            count_num.textContent=`GUESS LEFT ${count_life}`;
-        else{
-            submit_num.remove();
-        count_num.remove();
-        orray.textContent=`u DUMB!`;
-
-        }
-
-
-    }
-    
-
 }
 
+
+
+//----------------------------------------------------------------------------
+//temp-converter
+
+document.getElementById(`submit_temp`).onclick=function(){
+    let temp =Number(document.getElementById(`temp_to_convert`).value);
+    let toCelc=document.getElementById(`toCelc`);
+    let toFahr=document.getElementById(`toFahr`);
+    let final_temp=document.getElementById(`ansTemp`);
+
+        if(toCelc.checked){
+            temp= (temp - 32)*5/9;
+            
+            final_temp.textContent=temp.toFixed(2)+` C°`;
+        }
+        else if(toFahr.checked){
+            temp=(temp *9/5) + 32;
+            
+            final_temp.textContent=temp.toFixed(2)+` F°`;
+        }
+        console.log(temp.toFixed(2));
+}
+
+//----------------------------------------------------------------------------
+
+
+//array
+
+let fruits=[ "apple", "bananana" ,"narangoimea"];
+fruits.push("aaam");
+fruits.pop();
+fruits.unshift("mango") //add at beginning
+fruits.shift(); //removes from beginning
+fruits.length;
+fruits.indexOf("apple")
+fruits.sort();
+fruits.sort().reverse();
+
+//----------------------------------------------------------------------------
+//spread op   ... = unpacks the elements
+let numsbers=[51,65,64,65,15,5,684,86,873,784,178,5178]
+console.log(Math.max(...numsbers));  //5178
+
+let apnaname="nikolama baba";
+console.log(...apnaname) //n i k o l a m a   b a b a
+
+let vege=["potato","sabji","aalo"];
+
+let whole_food=[...fruits,...vege]; //added both arrays into one
+console.log(whole_food)
+//['narangoimea', 'bananana', 'apple', 'potato', 'sabji', 'aalo']
+
+whole_food=[...fruits,...vege ,"egges","milk"]; //can add elements too
+console.log(whole_food) 
+//['narangoimea', 'bananana', 'apple', 'potato', 'sabji', 'aalo', 'egges', 'milk']
+
+//----------------------------------------------------------------------------
+//rest parameter (...rest)  = bundles seperate elements into array
+
+function inFridge(...foods){
+    console.log(foods);
+}
+
+const food1="pizza";
+const food2="ham";
+const food3="coke";
+const food4="burger";
+const food5="fries";
+
+inFridge(food1,food2,food3,food4,food5)
+//['pizza', 'ham', 'coke', 'burger', 'fries']
+
+
+
+
+function sum_total(...numbers){
+    let result_sum=0;
+    for(number of numbers){
+        result_sum+=number;
+    }
+    return result_sum;
+
+}
+console.log(`your total is ${sum_total(1,2,3,5,65,2,6,5,5)}`);
+//your total is 94
+
+
+
+function joinString(...strings){
+    return strings.join(" ");
+}
+
+const fullnamee=joinString("Mr.","Niko","Lama","bigZAW");
+
+console.log(fullnamee);
+//Mr. Niko Lama bigZAW

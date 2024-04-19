@@ -333,8 +333,7 @@ let orray = document.getElementById('num_guess_text');
 submit_num.onclick=function(){
     let guess = Number(document.getElementById('numm').value);
 
-
-    
+    guess = Number(document.getElementById('numm').value);
     if(guess>random_numm){
         orray.textContent=`guess a low`;
         count_life+=1;
@@ -515,10 +514,134 @@ function summ(call_back,x,y){
 }
 
 function display_console(result_summ){
-    console.log(result_summ);
+    console.log(`Sum : ${result_summ}`);
 }
 
-summ(display_console,3,4); //7
+summ(display_console,8,5); //Sum : 13
+
+//----------------------------------------------------------------------------
+//forEach() = to iterate over elements of an array and apply a specified function to each element
+
+// array.forEach(callback)
+// needs - element,index,array
+
+let allnums = [1,2,3,4,5,4];
+allnums.forEach(cube_numsss);
+
+allnums.forEach(display_log);
+
+
+function display_log(numsss){
+    console.log(numsss);
+}
+
+function cube_numsss(element,index,array){
+    array[index]=element**3;
+}
+
+
+let fun_foods=['kiwi','lichi','pomegranate'];
+
+fun_foods.forEach(CapitalAt0);
+fun_foods.forEach(display_log);
+
+function CapitalAt0(element,index,array){
+    array[index]=element.charAt(0).toUpperCase()+element.slice(1);
+}
+
+// Kiwi
+// Lichi
+// Pomegranate
 
 
 
+//----------------------------------------------------------------------------
+//Map() method - accepts the callback and applies the function to each element of an array,then returns a new array
+
+let numbs=[1,5,9,7,5,3];
+
+let new_numbs=numbs.map(square_numbs)
+console.log(new_numbs)
+//[1, 25, 81, 49, 25, 9]
+
+function square_numbs(element){
+    return Math.pow(element,2);
+}
+
+
+const date_YYDDMM=['2024-30-12','2026-12-10','2020-19-04'];
+
+const date_DDMMYY=date_YYDDMM.map(date_dmy);
+
+console.log(date_DDMMYY)
+// ['30 / 12 / 2024', '12 / 10 / 2026', '19 / 04 / 2020']
+function date_dmy(element){
+    const parts=element.split("-");
+    return `${parts[1]} / ${parts[2]} / ${parts[0]}`
+}
+
+//----------------------------------------------------------------------------
+// .filter() = creates new arrray by filtering out elements
+
+numbs=[1,2,3,4,5,6];
+
+let even_numbs=numbs.filter(is_even);
+
+console.log(even_numbs)
+//[2, 4, 6]
+
+function is_even(element){
+    return element % 2 === 0;
+}
+
+const fruits_words=["kiwi","orange","apple","mango","pomegranate","pineapple","lichi"];
+
+
+
+function fruits_5(element){
+    return element.length<=5;
+}
+
+const fruits_short=fruits_words.filter(fruits_5);
+
+console.log(fruits_short);
+//['kiwi', 'apple', 'mango', 'lichi']
+
+//----------------------------------------------------------------------------
+// .reduce() -reduces the elements of an array to single value
+
+let prices_=[10,50,500,3,277];
+
+function total_(acc,element){
+    return acc+element;
+}
+
+let total_prices = prices_.reduce(total_);
+
+console.log(total_prices) //840
+
+let grades=prices_.reduce(average_);
+
+console.log(grades)
+
+function average_(accumulator_,currentVal_,currentIndex_, array_){
+    accumulator_+=currentVal_;
+    if(currentIndex_<array_.length){
+        return accumulator_/array_.length
+    }else{
+        return accumulator_;
+    }
+}
+
+//set time to execute in ms ; 1000ms = 1sec
+
+setTimeout(hello,3000)
+
+function hello(){
+    console.log("hello on 3sec")
+}
+
+
+setTimeout(function hello__(){
+    console.log("hello from inside");
+},5000)

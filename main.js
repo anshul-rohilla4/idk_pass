@@ -74,12 +74,15 @@ document.getElementById("submit_age").onclick = function(){
     
     age=document.getElementById("age").value;
     age=Number(age);
-    if(age>=18){
+    if(age>=18 ){
     document.getElementById("vote").textContent=`u can vote `
     console.log(`user age : ${age}`)
-    }else{
+    }else if(age>0){
         document.getElementById("vote").textContent=`come back after ${18-age} years`;
         
+    }else{
+        document.getElementById("vote").textContent=`go back to grave`;
+
     }
 
 }
@@ -502,6 +505,20 @@ get_pswd.onclick=function(){
 
 
 //----------------------------------------------------------------------------
-//callback
+//callback = function passed as an argument to an another function
+
+
+
+function summ(call_back,x,y){
+    let result_summ =x+y;
+    call_back(result_summ);
+}
+
+function display_console(result_summ){
+    console.log(result_summ);
+}
+
+summ(display_console,3,4); //7
+
 
 

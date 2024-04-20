@@ -321,7 +321,7 @@ console.log(name2)
 //num guesser
 
 
-let random_numm=Math.floor(Math.random()*10)+1;
+let random_numm=Math.floor(Math.random()*50)+1;
 console.log(`random num : ${random_numm}`);
 
 let submit_num=document.getElementById(`submit_num`);
@@ -739,3 +739,24 @@ console.log(person2.nameis());
 
 //----------------------------------------------------------------------------
 //constructors
+
+function CAR (make,model,year,price,old){
+    this.make=make,
+    this.model=model,
+    this.year=year,
+    this.price=price,
+    this.old=old,
+    this.speed= function (speed){ console.log(`top speed ${speed}`)}
+}
+
+const CAR1=new CAR("FORD","GT",2005,55000,5);
+
+const CAR2=new CAR("FERRARI","SF90",2016,96000,3);
+
+console.log(CAR2.make)//FERRARI
+
+console.log(CAR1.speed(310))//top speed 310
+
+//----------------------------------------------------------------------------
+//class =provides a structured and cleaner way to work with objects
+//ES-6 feature

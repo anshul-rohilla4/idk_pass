@@ -746,7 +746,7 @@ function CAR (make,model,year,price,old){
     this.year=year,
     this.price=price,
     this.old=old,
-    this.speed= function (speed){ console.log(`top speed ${speed}`)}
+    this.speed= function (speed){ return `top speed ${speed}`}
 }
 
 const CAR1=new CAR("FORD","GT",2005,55000,5);

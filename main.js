@@ -760,3 +760,85 @@ console.log(CAR1.speed(310))//top speed 310
 //----------------------------------------------------------------------------
 //class =provides a structured and cleaner way to work with objects
 //ES-6 feature
+
+class products{
+    constructor(P_name,P_price){
+        this.name=P_name,
+        this.price=P_price;
+    }
+    displayProduct() {
+        console.log(`${this.name} costs $${this.price.toFixed(2)}`);
+    }
+
+    TotalCost(sellTax){
+        return this.price+this.price*sellTax
+    }
+}
+const sellTax=0.05
+
+const newProduct1=new products("jeans",50);
+const newProduct2=new products("shirt",10);
+
+newProduct1.displayProduct();//jeans costs $50.00
+
+const newProduct2Price=newProduct2.TotalCost(sellTax)
+newProduct2.displayProduct();//shirt costs $10.00
+console.log(`Total Price(incTAX) : $${newProduct2Price}`)//Total Price(incTAX) : $10.5
+
+//----------------------------------------------------------------------------
+//static =keyword that defines properties or methods of that class itself
+
+class mathsUtil{
+    static PI=3.14159;
+
+    static getCircum(radius){
+        return 2 * this.PI * radius;
+    }
+
+    static getArea(radius){
+        return this.PI*(radius**2);
+    }
+}
+
+
+console.log(mathsUtil.PI)//3.14159
+//directly calls the static property of the class without creating any object from that class
+
+console.log(mathsUtil.getCircum(5))//31.4159
+
+console.log(mathsUtil.getArea(5))//78.53975
+
+
+class users{
+    static userCount=0;
+
+    constructor(username){
+        this.username=username;
+        users.userCount++;
+    }
+
+    helloUser(){
+        console.log(`hello ${this.username}`)
+    }
+    static getUsersCount(){
+        return this.userCount;
+    }
+}
+
+const user1=new users("lallo");
+
+console.log(user1.username)
+
+console.log(users.userCount)//1
+// as usercount is the property of the class and not the object ,we use the class to access it, ie. users
+
+const user2=new users("paplu");
+console.log(users.userCount)//2
+
+user2.helloUser()//hello paplu
+
+console.log(users.getUsersCount()) //2
+
+
+//----------------------------------------------------------------------------
+//inheritance

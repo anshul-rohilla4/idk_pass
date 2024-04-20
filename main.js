@@ -645,3 +645,97 @@ function hello(){
 setTimeout(function hello__(){
     console.log("hello from inside");
 },5000)
+
+
+//----------------------------------------------------------------------------
+//funstion expressions = to define functoins as values or variables
+
+numbs=[1,2,3,4,5,6];
+const square_numbs_=numbs.map(function(element){
+    return Math.pow(element,2);
+})
+
+console.log(`square ${square_numbs_}`)
+//square 1,4,9,16,25,36
+
+
+const cube_numbs_=numbs.map(function(element){
+    return Math.pow(element,3);
+})
+
+console.log(`cube ${cube_numbs_}`)
+
+//----------------------------------------------------------------------------
+//arrow funstions =to write functions that are used only once
+
+const hellno = () => console.log("hellno");
+
+hellno();
+//hellno
+
+const hellno_name = (_name) => console.log(`hellno ${_name}`);
+
+hellno_name("nikola");
+//hellno nikola 
+
+
+setTimeout( ()=> console.log(`oklohoma`),3000)
+//oklohoma
+
+
+//numbs=[1,2,3,4,5,6];
+const cube_numbs__=numbs.map((element) =>Math.pow(element,3))
+console.log(cube_numbs__)
+//[1, 8, 27, 64, 125, 216]
+
+//----------------------------------------------------------------------------
+//objects
+//object ={key:value,function()}
+
+const person1 ={
+    fname:"sponge",
+    lname:"pookie",
+    age:2,
+    isgood:false,
+    sayhello: ()=> {console.log(`heeyloo patrick`) }
+}
+
+const person2={
+    fname:"nottie",
+    lname:"lama",
+    age:85,
+    isgood:true,
+    ishungry:() => {console.log(`gib me  crabbs`)},
+    nameis: function () {return this.fname+" "+ this.lname}
+
+}
+
+console.log(person1)
+//{fname: 'sponge', lname: 'pookie', age: 2, isgood: false}
+
+person1.sayhello();
+//heeyloo patrick
+
+console.log(person2.age) //85
+
+person2.ishungry();
+//gib me  crabbs
+
+//----------------------------------------------------------------------------
+//this = reference to an object where THIS is used.
+
+// to not this.() with arrow function `=>`  ,Arrow functions have lexical 
+//scope for this, which means they do not bind their own this but inherit this 
+//from the surrounding code.
+
+//object depends on the immediate reference
+
+//this.() @line709
+console.log(person2.nameis());
+//nottie lama
+
+
+//console.log(this)
+
+//----------------------------------------------------------------------------
+//constructors

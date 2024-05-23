@@ -462,10 +462,10 @@ console.log(fullnamee);
 
 
 const PSWD_Length=12;
-const includeLC=true;
-const includeUC=true;
-const includeNUMS=true;
-const includeCHAR=true;
+const includeLC=true;//lower char
+const includeUC=true;//upper char
+const includeNUMS=true;//numbers
+const includeCHAR=true;//special chars
 
 
 function generatePswd(PSWD_Length,includeLC,includeUC,includeNUMS,includeCHAR){
@@ -635,24 +635,25 @@ function average_(accumulator_,currentVal_,currentIndex_, array_){
 
 //set time to execute in ms ; 1000ms = 1sec
 
-setTimeout(hello,3000)
+// setTimeout(hello,3000)
 
-function hello(){
-    console.log("hello on 3sec")
-}
+// function hello(){
+//     console.log("hello on 3sec")
+// }
 
 
-setTimeout(function hello__(){
-    console.log("hello from inside");
-},5000)
+// setTimeout(function hello__(){
+//     console.log("hello from inside");
+// },5000)
 
 
 //----------------------------------------------------------------------------
-//funstion expressions = to define functoins as values or variables
+//function expressions = to define functions as values or variables
 
 numbs=[1,2,3,4,5,6];
-const square_numbs_=numbs.map(function(element){
-    return Math.pow(element,2);
+const square_numbs_=numbs.map(
+        function(element){
+            return Math.pow(element,2);
 })
 
 console.log(`square ${square_numbs_}`)
@@ -679,7 +680,7 @@ hellno_name("nikola");
 //hellno nikola 
 
 
-setTimeout( ()=> console.log(`oklohoma`),3000)
+// setTimeout( ()=> console.log(`oklohoma`),3000)
 //oklohoma
 
 
@@ -841,4 +842,94 @@ console.log(users.getUsersCount()) //2
 
 
 //----------------------------------------------------------------------------
-//inheritance
+//inheritance = inherit properties and method from parent class
+
+class sde_dept extends users{   
+}
+
+const sde_1=new sde_dept("sde_1 rakesh");
+
+sde_1.helloUser()//hello sde_1 rakesh
+
+console.log(sde_dept.getUsersCount())//3
+//new sde_1 is added to users class
+
+
+
+class Animals{
+    constructor(name){
+        this.name=name;
+    }
+
+    isAlive(){
+        console.log(`${this.name} is alive`);
+    }
+
+    isEat(){
+        console.log(`${this.name} eats`);
+    }
+}
+
+class Dogs extends Animals{
+    breed(type){
+        this.type=type;
+        console.log(`${this.name} is a ${this.type}`);
+    }
+}
+
+const leo= new Dogs("Leo");
+
+leo.breed("belgium shepard")
+//Leo is a belgium shepard
+
+const bruinie = new Dogs("bruinie");
+
+bruinie.isAlive() //bruinie is alive
+
+//------------------------------------------------------------------
+//super class = a keyword used to accessproperties or methods of parent class(ie. super class)
+
+class Animals2{
+    constructor(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    move(speed){
+        console.log(`${this.name} moves at ${speed} kph`);
+    }
+}
+
+class Birds extends Animals2{
+    constructor(name,age,flySpeed){
+        super(name,age);
+        this.flySpeed=flySpeed;
+    }
+    fly(){
+        console.log(`${this.name} can swim`);
+        super.move(this.flySpeed);
+    }
+}
+
+class Cats extends Animals2{
+    constructor(name,age,runSpeed){
+        super(name,age);
+        this.runSpeed=runSpeed;
+    }
+    run(){
+        console.log(`${this.name} can run`);
+        super.move(this.runSpeed);
+    }
+}
+
+const chica=new Birds("chica",2,20);
+
+const lucy=new Cats ("lucy",3,32);
+
+console.log(chica.flySpeed)//20
+
+lucy.run();
+
+//------------------------------------------------------------------
+//special methods
+//getter=makes a property readable
+//setter=makes a property writable

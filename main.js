@@ -65,12 +65,20 @@ console.log(typeof online)//boolean
 
 
 let username;
-document.getElementById("submit").onclick = function(){
-    username=document.getElementById("username").value;
-    document.getElementById("heading").textContent=`HELLO ${username}`
-    console.log(`username : ${username}`)
-
+function submitUsername() {
+    username = document.getElementById("username").value;
+    document.getElementById("heading").textContent = `HELLO ${username}`;
+    console.log(`username: ${username}`);
 }
+
+
+document.getElementById("submit").onclick = submitUsername();
+
+document.getElementById("username").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        submitUsername();
+    }
+});
 
 
 

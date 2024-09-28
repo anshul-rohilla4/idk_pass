@@ -72,7 +72,7 @@ function submitUsername() {
 }
 
 
-document.getElementById("submit").onclick = submitUsername();
+document.getElementById("submit").onclick = submitUsername;
 
 document.getElementById("username").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
@@ -84,19 +84,26 @@ document.getElementById("username").addEventListener("keydown", function(event) 
 
 
 var age;
-document.getElementById("submit_age").onclick = function(){
-    
+function submitAge(){
     age=document.getElementById("age").value;
     age=Number(age);
     if(age>=18){
-    document.getElementById("vote").textContent=`u can vote `
-    console.log(`user age : ${age}`)
+        document.getElementById("vote").textContent=`u can vote `
+        console.log(`user age : ${age}`)
     }else{
         document.getElementById("vote").textContent=`come back after ${18-age} years`;
         
     }
 
 }
+
+document.getElementById("submit_age").onclick = submitAge;
+
+document.getElementById("age").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        submitAge();
+    }
+});
 
 //--------------------------------------
 //counter

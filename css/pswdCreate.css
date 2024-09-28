@@ -1,0 +1,21 @@
+.pswd_box{
+    width: 500px;
+    background-color: rgb(59, 164, 255);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+
+    animation: slideToLeft 10s linear;
+}
+
+#PSWD_{
+    padding-left: 20px;
+    
+}
+
+#get_pswd{
+    height: 40px;
+    border-radius: 25px;
+    margin-top: 5px;
+}

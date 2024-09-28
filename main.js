@@ -9,15 +9,21 @@ document.getElementById("text").textContent="how r u?";
 
 document.getElementById("para").textContent="this is a para";
 
+let elements = ["#heading", "#text", "#para"];
+elements.forEach(id => {
+    document.querySelector(id).style.cssText = "color: white; font-size: 36px;";
+});
+
+
 
 var x;
 x=100;
 console.log(x)
 
-console.log("\n")
+console.log("\n")//new line
 let y;
 y=x*2;
-console.log(`its twice x  ${y}`) //use back-ticks ``
+console.log(`its twice x  ${y}`) //use back-ticks ` ` to print variables inside string
 //its twice x  200
 
 console.log(`price is ₨${x}`) //take a sign u want to be printed before ${} ,can use $ too
@@ -74,15 +80,12 @@ document.getElementById("submit_age").onclick = function(){
     
     age=document.getElementById("age").value;
     age=Number(age);
-    if(age>=18 ){
+    if(age>=18){
     document.getElementById("vote").textContent=`u can vote `
     console.log(`user age : ${age}`)
-    }else if(age>0){
+    }else{
         document.getElementById("vote").textContent=`come back after ${18-age} years`;
         
-    }else{
-        document.getElementById("vote").textContent=`go back to grave`;
-
     }
 
 }
@@ -151,13 +154,13 @@ let dice3=document.getElementById(`dice3`);
 
 
 document.getElementById("roll").onclick=function(){
-    let rand1=Math.floor(Math.random()*(maxi-mini)+mini);
+    let rand1=Math.floor(Math.random()*(maxi-mini+1)+mini);
     let imagePath1 = `dice-img/dice-${rand1}.png`;
 
-    let rand2=Math.floor(Math.random()*(maxi-mini)+mini);
+    let rand2=Math.floor(Math.random()*(maxi-mini+1)+mini);
     let imagePath2 = `dice-img/dice-${rand2}.png`;
 
-    let rand3=Math.floor(Math.random()*(maxi-mini)+mini);
+    let rand3=Math.floor(Math.random()*(maxi-mini+1)+mini);
     let imagePath3 = `dice-img/dice-${rand3}.png`;
 
     dice1.src=imagePath1
@@ -333,23 +336,32 @@ let orray = document.getElementById('num_guess_text');
 submit_num.onclick=function(){
     let guess = Number(document.getElementById('numm').value);
 
-    guess = Number(document.getElementById('numm').value);
+
+    
     if(guess>random_numm){
         orray.textContent=`guess a low`;
         count_life+=1;
         count_num.textContent=`TRIES ${count_life}`;
     }
-    else if(guess<random_numm){
+    else {
         orray.textContent=`guess a high`;
         count_life+=1;
         count_num.textContent=`TRIES ${count_life}`;
 
     }
-    else if(guess==random_numm){
-        submit_num.remove();
-        orray.textContent=`you a genius`;
-        count_life+=1;
-        count_num.textContent=`FINALLY @ ${count_life}`;
+    if(guess==random_numm){
+        if(count_life==1){
+            submit_num.remove();
+            orray.textContent=`you a genius`;
+            count_life+=1;
+            count_num.textContent=`first try big WIN `;
+
+        }else{
+            submit_num.remove();
+            orray.textContent=`you a genius`;
+            count_life+=1;
+            count_num.textContent=`FINALLY @ ${count_life}`;
+        }
     }
     if(count_life>10){
         submit_num.remove();
@@ -462,10 +474,10 @@ console.log(fullnamee);
 
 
 const PSWD_Length=12;
-const includeLC=true;//lower char
-const includeUC=true;//upper char
-const includeNUMS=true;//numbers
-const includeCHAR=true;//special chars
+const includeLC=true;
+const includeUC=true;
+const includeNUMS=true;
+const includeCHAR=true;
 
 
 function generatePswd(PSWD_Length,includeLC,includeUC,includeNUMS,includeCHAR){
@@ -504,432 +516,4 @@ get_pswd.onclick=function(){
 
 
 //----------------------------------------------------------------------------
-//callback = function passed as an argument to an another function
-
-
-
-function summ(call_back,x,y){
-    let result_summ =x+y;
-    call_back(result_summ);
-}
-
-function display_console(result_summ){
-    console.log(`Sum : ${result_summ}`);
-}
-
-summ(display_console,8,5); //Sum : 13
-
-//----------------------------------------------------------------------------
-//forEach() = to iterate over elements of an array and apply a specified function to each element
-
-// array.forEach(callback)
-// needs - element,index,array
-
-let allnums = [1,2,3,4,5,4];
-allnums.forEach(cube_numsss);
-
-allnums.forEach(display_log);
-
-
-function display_log(numsss){
-    console.log(numsss);
-}
-
-function cube_numsss(element,index,array){
-    array[index]=element**3;
-}
-
-
-let fun_foods=['kiwi','lichi','pomegranate'];
-
-fun_foods.forEach(CapitalAt0);
-fun_foods.forEach(display_log);
-
-function CapitalAt0(element,index,array){
-    array[index]=element.charAt(0).toUpperCase()+element.slice(1);
-}
-
-// Kiwi
-// Lichi
-// Pomegranate
-
-
-
-//----------------------------------------------------------------------------
-//Map() method - accepts the callback and applies the function to each element of an array,then returns a new array
-
-let numbs=[1,5,9,7,5,3];
-
-let new_numbs=numbs.map(square_numbs)
-console.log(new_numbs)
-//[1, 25, 81, 49, 25, 9]
-
-function square_numbs(element){
-    return Math.pow(element,2);
-}
-
-
-const date_YYDDMM=['2024-30-12','2026-12-10','2020-19-04'];
-
-const date_DDMMYY=date_YYDDMM.map(date_dmy);
-
-console.log(date_DDMMYY)
-// ['30 / 12 / 2024', '12 / 10 / 2026', '19 / 04 / 2020']
-function date_dmy(element){
-    const parts=element.split("-");
-    return `${parts[1]} / ${parts[2]} / ${parts[0]}`
-}
-
-//----------------------------------------------------------------------------
-// .filter() = creates new arrray by filtering out elements
-
-numbs=[1,2,3,4,5,6];
-
-let even_numbs=numbs.filter(is_even);
-
-console.log(even_numbs)
-//[2, 4, 6]
-
-function is_even(element){
-    return element % 2 === 0;
-}
-
-const fruits_words=["kiwi","orange","apple","mango","pomegranate","pineapple","lichi"];
-
-
-
-function fruits_5(element){
-    return element.length<=5;
-}
-
-const fruits_short=fruits_words.filter(fruits_5);
-
-console.log(fruits_short);
-//['kiwi', 'apple', 'mango', 'lichi']
-
-//----------------------------------------------------------------------------
-// .reduce() -reduces the elements of an array to single value
-
-let prices_=[10,50,500,3,277];
-
-function total_(acc,element){
-    return acc+element;
-}
-
-let total_prices = prices_.reduce(total_);
-
-console.log(total_prices) //840
-
-let grades=prices_.reduce(average_);
-
-console.log(grades)
-
-function average_(accumulator_,currentVal_,currentIndex_, array_){
-    accumulator_+=currentVal_;
-    if(currentIndex_<array_.length){
-        return accumulator_/array_.length
-    }else{
-        return accumulator_;
-    }
-}
-
-//set time to execute in ms ; 1000ms = 1sec
-
-// setTimeout(hello,3000)
-
-// function hello(){
-//     console.log("hello on 3sec")
-// }
-
-
-// setTimeout(function hello__(){
-//     console.log("hello from inside");
-// },5000)
-
-
-//----------------------------------------------------------------------------
-//function expressions = to define functions as values or variables
-
-numbs=[1,2,3,4,5,6];
-const square_numbs_=numbs.map(
-        function(element){
-            return Math.pow(element,2);
-})
-
-console.log(`square ${square_numbs_}`)
-//square 1,4,9,16,25,36
-
-
-const cube_numbs_=numbs.map(function(element){
-    return Math.pow(element,3);
-})
-
-console.log(`cube ${cube_numbs_}`)
-
-//----------------------------------------------------------------------------
-//arrow funstions =to write functions that are used only once
-
-const hellno = () => console.log("hellno");
-
-hellno();
-//hellno
-
-const hellno_name = (_name) => console.log(`hellno ${_name}`);
-
-hellno_name("nikola");
-//hellno nikola 
-
-
-// setTimeout( ()=> console.log(`oklohoma`),3000)
-//oklohoma
-
-
-//numbs=[1,2,3,4,5,6];
-const cube_numbs__=numbs.map((element) =>Math.pow(element,3))
-console.log(cube_numbs__)
-//[1, 8, 27, 64, 125, 216]
-
-//----------------------------------------------------------------------------
-//objects
-//object ={key:value,function()}
-
-const person1 ={
-    fname:"sponge",
-    lname:"pookie",
-    age:2,
-    isgood:false,
-    sayhello: ()=> {console.log(`heeyloo patrick`) }
-}
-
-const person2={
-    fname:"nottie",
-    lname:"lama",
-    age:85,
-    isgood:true,
-    ishungry:() => {console.log(`gib me  crabbs`)},
-    nameis: function () {return this.fname+" "+ this.lname}
-
-}
-
-console.log(person1)
-//{fname: 'sponge', lname: 'pookie', age: 2, isgood: false}
-
-person1.sayhello();
-//heeyloo patrick
-
-console.log(person2.age) //85
-
-person2.ishungry();
-//gib me  crabbs
-
-//----------------------------------------------------------------------------
-//this = reference to an object where THIS is used.
-
-// to not this.() with arrow function `=>`  ,Arrow functions have lexical 
-//scope for this, which means they do not bind their own this but inherit this 
-//from the surrounding code.
-
-//object depends on the immediate reference
-
-//this.() @line709
-console.log(person2.nameis());
-//nottie lama
-
-
-//console.log(this)
-
-//----------------------------------------------------------------------------
-//constructors
-
-function CAR (make,model,year,price,old){
-    this.make=make,
-    this.model=model,
-    this.year=year,
-    this.price=price,
-    this.old=old,
-    this.speed= function (speed){ return `top speed ${speed}`}
-}
-
-const CAR1=new CAR("FORD","GT",2005,55000,5);
-
-const CAR2=new CAR("FERRARI","SF90",2016,96000,3);
-
-console.log(CAR2.make)//FERRARI
-
-console.log(CAR1.speed(310))//top speed 310
-
-//----------------------------------------------------------------------------
-//class =provides a structured and cleaner way to work with objects
-//ES-6 feature
-
-class products{
-    constructor(P_name,P_price){
-        this.name=P_name,
-        this.price=P_price;
-    }
-    displayProduct() {
-        console.log(`${this.name} costs $${this.price.toFixed(2)}`);
-    }
-
-    TotalCost(sellTax){
-        return this.price+this.price*sellTax
-    }
-}
-const sellTax=0.05
-
-const newProduct1=new products("jeans",50);
-const newProduct2=new products("shirt",10);
-
-newProduct1.displayProduct();//jeans costs $50.00
-
-const newProduct2Price=newProduct2.TotalCost(sellTax)
-newProduct2.displayProduct();//shirt costs $10.00
-console.log(`Total Price(incTAX) : $${newProduct2Price}`)//Total Price(incTAX) : $10.5
-
-//----------------------------------------------------------------------------
-//static =keyword that defines properties or methods of that class itself
-
-class mathsUtil{
-    static PI=3.14159;
-
-    static getCircum(radius){
-        return 2 * this.PI * radius;
-    }
-
-    static getArea(radius){
-        return this.PI*(radius**2);
-    }
-}
-
-
-console.log(mathsUtil.PI)//3.14159
-//directly calls the static property of the class without creating any object from that class
-
-console.log(mathsUtil.getCircum(5))//31.4159
-
-console.log(mathsUtil.getArea(5))//78.53975
-
-
-class users{
-    static userCount=0;
-
-    constructor(username){
-        this.username=username;
-        users.userCount++;
-    }
-
-    helloUser(){
-        console.log(`hello ${this.username}`)
-    }
-    static getUsersCount(){
-        return this.userCount;
-    }
-}
-
-const user1=new users("lallo");
-
-console.log(user1.username)
-
-console.log(users.userCount)//1
-// as usercount is the property of the class and not the object ,we use the class to access it, ie. users
-
-const user2=new users("paplu");
-console.log(users.userCount)//2
-
-user2.helloUser()//hello paplu
-
-console.log(users.getUsersCount()) //2
-
-
-//----------------------------------------------------------------------------
-//inheritance = inherit properties and method from parent class
-
-class sde_dept extends users{   
-}
-
-const sde_1=new sde_dept("sde_1 rakesh");
-
-sde_1.helloUser()//hello sde_1 rakesh
-
-console.log(sde_dept.getUsersCount())//3
-//new sde_1 is added to users class
-
-
-
-class Animals{
-    constructor(name){
-        this.name=name;
-    }
-
-    isAlive(){
-        console.log(`${this.name} is alive`);
-    }
-
-    isEat(){
-        console.log(`${this.name} eats`);
-    }
-}
-
-class Dogs extends Animals{
-    breed(type){
-        this.type=type;
-        console.log(`${this.name} is a ${this.type}`);
-    }
-}
-
-const leo= new Dogs("Leo");
-
-leo.breed("belgium shepard")
-//Leo is a belgium shepard
-
-const bruinie = new Dogs("bruinie");
-
-bruinie.isAlive() //bruinie is alive
-
-//------------------------------------------------------------------
-//super class = a keyword used to accessproperties or methods of parent class(ie. super class)
-
-class Animals2{
-    constructor(name,age){
-        this.name=name;
-        this.age=age;
-    }
-    move(speed){
-        console.log(`${this.name} moves at ${speed} kph`);
-    }
-}
-
-class Birds extends Animals2{
-    constructor(name,age,flySpeed){
-        super(name,age);
-        this.flySpeed=flySpeed;
-    }
-    fly(){
-        console.log(`${this.name} can swim`);
-        super.move(this.flySpeed);
-    }
-}
-
-class Cats extends Animals2{
-    constructor(name,age,runSpeed){
-        super(name,age);
-        this.runSpeed=runSpeed;
-    }
-    run(){
-        console.log(`${this.name} can run`);
-        super.move(this.runSpeed);
-    }
-}
-
-const chica=new Birds("chica",2,20);
-
-const lucy=new Cats ("lucy",3,32);
-
-console.log(chica.flySpeed)//20
-
-lucy.run();
-
-//------------------------------------------------------------------
-//special methods
-//getter=makes a property readable
-//setter=makes a property writable
+//callback

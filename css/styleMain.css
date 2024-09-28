@@ -1,0 +1,68 @@
+body{
+
+    font-family: sans-serif;
+    padding-bottom: 200px;
+    background: linear-gradient(to top,rgb(0, 0, 90),rgb(61, 0, 0));
+
+}
+
+.headingHead{
+    font-family: "Press Start 2P";
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    margin-top: 50px;
+    white-space: nowrap;
+    animation: slideToLeft 2s linear;
+}
+
+.userInfo{
+    color: rgb(0, 255, 0);
+    font-size: 20px;
+}
+
+.boxes{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+@keyframes slideToLeft {
+    from{
+        margin-left:100%;
+        opacity: 0;
+        transform: translateX(-100%);
+        color: rgb(0, 0, 0);
+    }
+    to{
+        margin-left:0%;
+        opacity: 1;
+        transform: translateX(0);
+        
+    }
+}
+
+@keyframes slideToRight {
+    from{
+        margin-right:100%;
+        opacity: 0;
+        transform: translateX(0);
+        color: rgb(0, 0, 0);
+    }
+    to{
+        margin-right:0%;
+        opacity: 1;
+        transform: translateX(100%);
+        
+    }
+}
+
+
+
+
+
+

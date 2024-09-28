@@ -1,0 +1,56 @@
+.num_guess{
+    width: 500px;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    animation: slideToLeft 6s linear;
+}
+
+
+.guess{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+#numm{
+    font-size: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 60px;
+    border-radius: 5px;
+}
+
+.num_guess_bottom{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content:space-around;
+
+}
+
+#submit_num{
+    font-size: 30px;
+    border-radius: 20px;
+    border: 1px solid bisque;
+    height: 35px;
+    margin-top: 32px;
+}
+
+#submit_num:active{
+    background-color: rgb(255, 198, 129);
+}
+
+#count_left{
+    font-size: 30px;
+    border-radius: 20px;
+    border: 1px solid bisque;
+    padding-left: 7px;
+    padding-right: 7px;
+
+
+}

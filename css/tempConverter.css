@@ -1,0 +1,49 @@
+.temp_converter{
+    width: 500px;
+    background-color:lightpink;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 250px;
+
+    animation: slideToRight 8s linear;
+}
+
+.temp_box{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+#temp_to_convert{
+    height: 50px;
+    border-radius: 15px;
+    border: 1px solid black;
+    font-size: 50px;
+    width: 100px;
+}
+.convert_choice {
+    display: flex;
+    gap: 10px;
+    padding-left: 40px;
+    font-size: 35px;
+}
+
+#submit_temp{
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+.ansTemp{
+    display: flex;
+    justify-content: center;
+    max-height: 40px;
+}
+
+#ansTemp{
+    font-size: 40px;
+    font-size: 200;
+    color: coral;
+    
+}

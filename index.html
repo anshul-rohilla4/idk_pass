@@ -5,10 +5,21 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>my-site</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/styleMain.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/counterCss.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/dice.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/cards.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/numGuess.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/tempConverter.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/pswdCreate.css'>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
     
 </head>
 <h3>
+    <p class="headingHead">MY SITE</p>
+
     <h1 id="heading">hello</h1>
     <h3 id="text"></h3>
 
@@ -16,6 +27,8 @@
     
     <p id="this is meeeee"></p>
 
+
+    <div class="userInfo">
     <label>username &nbsp; &nbsp;</label>
     <input id="username" type="text"> 
     <button id="submit">submit</button>
@@ -26,8 +39,13 @@
     <input id="age" type="text"> 
     <button id="submit_age">submit </button>
     <p id="vote"></p>
+    </div>
     <p><br><br></p>
 
+    
+    
+    
+    <div class="boxes">
 
     <div class="counter">
         <div class="top">
@@ -60,7 +78,7 @@
 <div class="cards">
     <div>
         <input type="checkbox" id="mycheckbox">
-        <label for="mycheckbox">SUBSCRIBE</label>
+        <label>SUBSCRIBE</label>
         <br>
 
         <p>SELECT A PAYMENT MODE</p>
@@ -92,6 +110,8 @@
         <label id="num_guess_text" class="num_guess_text">Guess a number 1-50</label>
         <input type="text" id="numm">
         
+
+
     </div>
     <div class="num_guess_bottom">
         <button id="submit_num">SUBMIT</button>
@@ -103,16 +123,17 @@
 
 <br><br><br>
 
+
 <div class="temp_converter">
     <div class="temp_box">
         <input type="number" id="temp_to_convert">
     </div>
     <div class="convert_choice">
         <input type="radio" id="toCelc" name="temps_converts_choice">
-        <label class="temps_converts_choice" for="toCelc">F° to C°  </label>
+        <label for="toCelc">F° to C°  </label>
 
-        <input type="radio" id="toFahr" name="temps_converts_choice">
-        <label class="temps_converts_choice" for="toFahr">C° to F°</label>
+        <input type="radio" id="toFahr" name="temps_converts_choice ">
+        <label for="toFahr">C° to F°</label>
 
         <button id="submit_temp">CONVERT</button>
 
@@ -123,13 +144,16 @@
 </div>
 
 <br><br><br>
+
+
 <div class="pswd_box">
 <p id="PSWD_">PASSWORD : </p>
 <button id="get_pswd">GET PSWD</button>
+</div>
+
 </div>
 
 
     <script src='main.js'></script>
 </body>
 </html>
-
